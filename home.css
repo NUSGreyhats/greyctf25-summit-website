@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+	font-family: "unifont";
+	src: url("./unifont.woff") format('woff');
+}
+
+body {
+	color: #FEFEFE;
+	background-color: #0A0B11;
+	margin: 0;
+	padding: 1em 0;
+	width: 100vw;
+}
+
+a {
+	color: #93ffd7;
+	text-decoration: underline;
+}
+
+img {
+	width: 100vh;
+	height: auto;
+}
+
+ul {
+	list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+	padding: 0.5em 1em;
+}
+
+li:before {
+  content: "-";
+	margin-left: -1em;
+	padding-right: 0.5em;
+}
+
+hr {
+	width: 100%; 
+	margin: 3em 0;
+}
+
+.txtdiv {
+	margin: 0 auto;
+	max-width: 69vw;
+
+	display: block;
+	text-align: left;
+
+	font-family: "Space Mono", "unifont", "Lucida Console", monospace, Monaco;
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+@media only screen and (max-width: 600px) {
+	.txtdiv {
+		max-width: 85vw;
+		font-size: 0.9em;
+	}
+}
+
+.typewriter {
+	width: 20ch;
+	animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: 3px solid #FFFFFF;
+}
+
+@keyframes typing {
+	from {
+		width: 0
+	}
+}
+
+@keyframes blink {
+	50% {
+		border-color: transparent
+	}
+}
+
+.x {
+	font-size: 1.5em;
+	padding-top: 1em;
+	color: #a7c7e7;
+}
+
+.highlighted {
+	background-color: #fff8dc;
+	/* Light yellow background */
+	color: #ff0000;
+	/* Red text color for the heading */
+	padding: 2vh 3vh;
+	/* Padding around the text */
+	border-radius: 5px;
+	/* Rounded corners (optional) */
+	display: inline-block;
+	/* Make the background fit the content */
+}
+
+.announcement-box {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 95vh;
+	text-align: center;
+	padding: 20px;
+}
+
+.announcement-box h3 {
+	margin-top: 2vh;
+	font-size: 2.5vh;
+}
+
+.custom-table {
+	margin-top: 2em;
+	border-collapse: collapse;
+	width: 100%;
+	background-color: #222;
+	/* Dark background for the table */
+	/* box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green shadow */
+}
+
+.custom-table th,
+.custom-table td {
+	font-size: 1em;
+	/* Set font size for the entire table */
+	border: 2px solid #000;
+	/* Green border */
+	padding: 8px;
+	text-align: center;
+}
+
+.custom-table th {
+	background-color: #333;
+	/* Slightly lighter black for header */
+	color: #939fd7;
+	/* Green text for header */
+}
+
+.custom-table tr:nth-child(even) {
+	background-color: #333;
+	/* Slightly lighter black for even rows */
+}
+
+.custom-table tr:hover {
+	background-color: #939fd7;
+	/* Dark green hover effect */
+}
+
+.list-header {
+	display: inline-block;
+	width: 5em; /* increase if needed */
+}
