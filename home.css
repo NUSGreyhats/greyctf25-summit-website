@@ -39,6 +39,18 @@ li:before {
 	padding-right: 0.5em;
 }
 
+/* Nested list styling */
+ul ul {
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+ul ul li:before {
+  content: "•";  /* Different bullet for nested items */
+  margin-left: -1em;
+  padding-right: 0.5em;
+}
+
 hr {
 	width: 100%; 
 	margin: 3em 0;
