@@ -8,6 +8,7 @@ const scans = JSON.parse(localStorage.getItem("scans") ?? "[]");
 const id = localStorage.getItem("id") ?? Math.random().toString().slice(2, 8).toUpperCase();
 localStorage.setItem("scans", JSON.stringify(scans));
 localStorage.setItem("id", id);
+bingo_id.innerText = "Bingo ID: "+id;
 
 // Create bingo board
 for (let i = 0; i < 4; i++) {
@@ -148,7 +149,6 @@ function decryptChallenge(bingoData, idx) {
 
   const res = CryptoJS.enc.Hex.parse(xorHexStrings(hash.toString(), cts[idx])).toString(CryptoJS.enc.Utf8).replaceAll("\x00", "").replaceAll("DYNAMIC", id);
   message.innerHTML = `Bingo! The flag is: <code>${res}</code>. Head over to the Greyhats booth to redeem your merch!`;
-  message.classList.add("solved");
 
   umami.track('Bingo Completed', {"id": id});
 }
