@@ -58,8 +58,8 @@ html {
   border-radius: 5px;
 }
 
-.bingo-message.solved {
-  font-size: 42px;
+.bingo_id {
+  font-size: 24px;
 }
 
 
