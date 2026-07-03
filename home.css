@@ -130,36 +130,39 @@ hr {
 	margin-top: 2em;
 	border-collapse: collapse;
 	width: 100%;
-	background-color: #222;
-	/* Dark background for the table */
-	/* box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green shadow */
 }
 
 .custom-table th,
 .custom-table td {
 	font-size: 1em;
-	/* Set font size for the entire table */
-	border: 2px solid #000;
-	/* Green border */
-	padding: 8px;
-	text-align: center;
+	border: none;
+	border-bottom: 1px solid #2a2d3a;
+	padding: 0.75em 1em 0.75em 0;
+	text-align: left;
+	vertical-align: top;
 }
 
 .custom-table th {
-	background-color: #333;
-	/* Slightly lighter black for header */
-	color: #939fd7;
-	/* Green text for header */
+	color: #a7c7e7;
+	border-bottom: 2px solid #2a2d3a;
 }
 
-.custom-table tr:nth-child(even) {
-	background-color: #333;
-	/* Slightly lighter black for even rows */
+.custom-table td:first-child {
+	white-space: nowrap;
+	color: #93ffd7;
+	width: 1%;
+	padding-right: 2.5em;
 }
 
-.custom-table tr:hover {
-	background-color: #939fd7;
-	/* Dark green hover effect */
+.custom-table tr:hover td {
+	background-color: #171922;
+}
+
+.custom-table .speaker {
+	display: block;
+	color: #8a8f98;
+	font-size: 0.85em;
+	font-style: normal;
 }
 
 .list-header {
