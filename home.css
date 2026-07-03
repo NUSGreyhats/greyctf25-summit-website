@@ -5,12 +5,43 @@
 	src: url("./unifont.woff") format('woff');
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	color: #FEFEFE;
 	background-color: #0A0B11;
 	margin: 0;
 	padding: 1em 0;
 	width: 100vw;
+}
+
+.x {
+	scroll-margin-top: 1em;
+}
+
+.nav-links {
+	color: #93ffd7;
+}
+
+.nav-links a {
+	text-decoration: none;
+	margin-right: 0.25em;
+}
+
+.floorplan summary {
+	cursor: pointer;
+	color: #93ffd7;
+	text-decoration: underline;
+}
+
+.floorplan img {
+	width: 100%;
+	height: auto;
+	margin-top: 1em;
+	border: 1px solid #2a2d3a;
+	background-color: #fff;
 }
 
 a {
@@ -156,6 +187,19 @@ hr {
 
 .custom-table tr:hover td {
 	background-color: #171922;
+}
+
+.custom-table tr.now td {
+	background-color: #12241c;
+}
+
+.custom-table tr.now td:first-child {
+	font-weight: bold;
+}
+
+.custom-table tr.now td:first-child::after {
+	content: " ← now";
+	color: #93ffd7;
 }
 
 .custom-table .speaker {
