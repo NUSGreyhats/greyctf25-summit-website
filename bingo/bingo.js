@@ -4,6 +4,14 @@ const bingoTab = document.getElementById('bingo-tab');
 const scanTab = document.getElementById('scan-tab');
 let scanner;
 let boardState = Array(4).fill().map(() => Array(4).fill(null));
+// same URL as last year's bingo — drop any state carried over from 2025
+const BINGO_YEAR = "2026";
+if (localStorage.getItem("bingoYear") !== BINGO_YEAR) {
+  localStorage.removeItem("scans");
+  localStorage.removeItem("id");
+  localStorage.setItem("bingoYear", BINGO_YEAR);
+}
+
 const scans = JSON.parse(localStorage.getItem("scans") ?? "[]");
 const id = localStorage.getItem("id") ?? Math.random().toString().slice(2, 8).toUpperCase();
 localStorage.setItem("scans", JSON.stringify(scans));
@@ -136,22 +144,27 @@ function xorHexStrings(hex1, hex2) {
 
 // Decrypt challenge
 function decryptChallenge(bingoData, idx) {
-  // Hex decode the bingo data
-  const decodedData = CryptoJS.enc.Hex.parse(bingoData)
-  console.log("Decoded Bingo Data:", decodedData);
+  try {
+    // Hex decode the bingo data
+    const decodedData = CryptoJS.enc.Hex.parse(bingoData)
+    console.log("Decoded Bingo Data:", decodedData);
 
-  // Compute SHA256 hash
-  const hash = CryptoJS.SHA256(decodedData);
-  console.log("SHA256 Hash:", hash.toString());
-  console.log(cts[idx])
+    // Compute SHA256 hash
+    const hash = CryptoJS.SHA256(decodedData);
+    console.log("SHA256 Hash:", hash.toString());
+    console.log(cts[idx])
 
-  const res = CryptoJS.enc.Hex.parse(xorHexStrings(hash.toString(), cts[idx])).toString(CryptoJS.enc.Utf8).replaceAll("\x00", "").replaceAll("DYNAMIC", id);
-  if (idx === 10) {
-    message.innerHTML = `FULL BINGO! The flag is: <code>${res}</code>. Head over to the NUS Greyhats booth to redeem your GreyCat plushie!`;
-    window.umami?.track('Bingo Full Board', {"id": id});
-  } else {
-    message.innerHTML = `Bingo! The flag is: <code>${res}</code>. Head over to the NUS Greyhats booth to redeem your GreyCTF hoodie!`;
-    window.umami?.track('Bingo Completed', {"id": id});
+    const res = CryptoJS.enc.Hex.parse(xorHexStrings(hash.toString(), cts[idx])).toString(CryptoJS.enc.Utf8).replaceAll("\x00", "").replaceAll("DYNAMIC", id);
+    if (idx === 10) {
+      message.innerHTML = `FULL BINGO! The flag is: <code>${res}</code>. Head over to the NUS Greyhats booth to redeem your GreyCat plushie!`;
+      window.umami?.track('Bingo Full Board', {"id": id});
+    } else {
+      message.innerHTML = `Bingo! The flag is: <code>${res}</code>. Head over to the NUS Greyhats booth to redeem your GreyCTF jacket!`;
+      window.umami?.track('Bingo Completed', {"id": id});
+    }
+  } catch (e) {
+    // stale/invalid scan data (e.g. a QR code from a previous year) — don't break the board
+    console.error("Failed to decrypt bingo data", e);
   }
 }
 
