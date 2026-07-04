@@ -29,7 +29,7 @@ const names = [
     "DSTA",
     "FREE",
     "DIS",
-    "CSA"
+    "FREE"
 ]
 
 
@@ -53,5 +53,6 @@ for(const name of names) {
 const freeCells = [
     '0;1;20ae13d5c7a073af;64ddea82709d7c5f;68a67f52c3445ffa',
     '1;3;40c4eeeda4e875ef;8d41815eee87e5aa;295e2b350675022a',
-    '3;1;68593c8897f92e6f;3e7b45e296943442;a193d669527459d5'
+    '3;1;68593c8897f92e6f;3e7b45e296943442;a193d669527459d5',
+    '3;3;5855c10d4f6423d7;f1343b9a6391b75d;4f352a3d91e8b835'
 ]
