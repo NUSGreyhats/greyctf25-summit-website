@@ -159,7 +159,7 @@ function decryptChallenge(bingoData, idx) {
       message.innerHTML = `FULL BINGO! The flag is: <code>${res}</code>. Head over to the NUS Greyhats booth to redeem your GreyCat plushie!`;
       window.umami?.track('Bingo Full Board', {"id": id});
     } else {
-      message.innerHTML = `Bingo! The flag is: <code>${res}</code>. Head over to the NUS Greyhats booth to redeem your GreyCTF jacket!`;
+      message.innerHTML = `Bingo! The flag is: <code>${res}</code>. Unfortunately, GreyCTF jackets are out of stock. Complete the whole board for a GreyCat plushie!`;
       window.umami?.track('Bingo Completed', {"id": id});
     }
   } catch (e) {
